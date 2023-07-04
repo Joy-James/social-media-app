@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mssql": "^9.1.1",
+    "nodemon": "^2.0.22"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "authentication",
+  "version": "1.0.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "Joy",
+  "license": "ISC",
+  "description": ""
+}
