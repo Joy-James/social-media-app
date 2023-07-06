@@ -1,8 +1,10 @@
 const express=require('express');
 const createRouter=express.Router()
-const{getCommentById} = require('../controllers/commentController')
+const{createComment,updateComment} = require('../controllers/createCommentContrller')
 
-createRouter.get('/posts/:commentId',  getCommentById )
+createRouter.post('/posts/:comment',  createComment )
+createRouter.put('/posts/:update',  updateComment )
+
 
 module.exports=  createRouter;
 
