@@ -60,6 +60,40 @@ async function createComment  (req, res)  {
       res.status(500).json({ error: "Internal server error" });
     }
   }
+
+ async function  deleteComment (req, res)  {
+    try {
+      const { post_id, comment_id } = req.body;
+      const sql = await mssql.connect(config);
+      if (sql.connected) {
+        const request = sql.request()
+          .input("post_id", post_id)
+          .input("comment_id", comment_id)
+          .execute("dbo.DeleteComment");
+  
+        const result = await request;
+        const rowsAffected = result.rowsAffected[0];
+  
+        if (rowsAffected === 0) {
+         
+          res.status(404).json({
+            success: false,
+            message: "Comment not found"
+          });
+        } else {
+     
+          res.json({
+            success: true,
+            message: "Comment deleted successfully"
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  }
   
   
-  module.exports={createComment, updateComment}
+  
+  module.exports={createComment, updateComment, deleteComment}
