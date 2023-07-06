@@ -3,14 +3,14 @@ const {config} = require('../config/config');
 const mssql = require('mssql');
 const bcrypt = require('bcrypt');
 const{ newUserValidator}=require('../validators/newUserValidator')
-const { getUserById}=require('../utils/getUser')
+const {sendMail}=require('../utils/sendMail')
 
 
 
 module.exports = {
   
   postUser: async (req, res) => {
-    console.log(req.cookie)
+    console.log(req.headers.cookie)
     try {
       let user = req.body;
       let hashedPwd = await bcrypt.hash(user.password, 8);
@@ -18,15 +18,15 @@ module.exports = {
       let {value} = newUserValidator(user)
       let sql = await mssql.connect(config);
       if (sql.connected) {
-        let results = await sql.request()
-          .input("full_name", value.full_name)
-          .input("username", value.username)
-          .input("email", value.email)
-          .input("city", value.city)
-          .input("password", hashedPwd)
-          .execute("dbo.CreateUser");
+        // let results = await sql.request()
+        //   .input("full_name", value.full_name)
+        //   .input("username", value.username)
+        //   .input("email", value.email)
+        //   .input("city", value.city)
+        //   .input("password", hashedPwd)
+        //   .execute("dbo.CreateUser");
 
-        console.log(results);
+        // console.log(results);
         try {
           await sendMail(user.email, user.full_name);
         } catch {
@@ -35,7 +35,7 @@ module.exports = {
         res.json({
           success: true,
           message: "User created successfully",
-          results: results.recordsets[0]
+          // results: results.recordsets[0]
         });
       }
     } catch (error) {
