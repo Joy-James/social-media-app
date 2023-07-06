@@ -59,19 +59,19 @@ async function createPost(req, res) {
           let { post_id } = req.body;
           let sql = await mssql.connect(config);
           if (sql.connected) {
-            // Check if the post exists before attempting to delete
+        
             let checkPostQuery = await sql.request()
               .input("post_id", post_id)
               .query("SELECT COUNT(*) AS count FROM Posts WHERE post_id = @post_id");
       
             if (checkPostQuery.recordset[0].count === 0) {
-              // Post with the given ID doesn't exist
+      
               res.status(404).json({
                 success: false,
                 message: "Post not found"
               });
             } else {
-              // Delete the post
+            
               let deleteRequest = sql.request()
                 .input("post_id", post_id)
                 .execute("dbo.DeletePost");
@@ -80,13 +80,13 @@ async function createPost(req, res) {
               let rowsAffected = deleteResult.rowsAffected[0];
       
               if (rowsAffected === 0) {
-                // No rows affected, delete operation failed
+             
                 res.status(500).json({
                   success: false,
                   message: "Failed to delete post"
                 });
               } else {
-                // Post deleted successfully
+            
                 res.json({
                   success: true,
                   message: "Post deleted successfully"

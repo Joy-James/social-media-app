@@ -1,13 +1,13 @@
 const express = require('express');
 const createRouter=require('./src/routes/createPostsRoutes')
-// const postRouter = require('./src/routes/postsRoutes');
+const postRouter = require('./src/routes/postsRoutes');
 
 const app = express();
 
 app.use(express.json())
 
 
-// app.use('/', postRouter)
+app.use('/', postRouter)
 
 app.use('/', createRouter)
 
