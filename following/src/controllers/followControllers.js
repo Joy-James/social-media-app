@@ -19,7 +19,7 @@ const {config} = require('../config/config');
   
         res.json({
           success: true,
-          message: "Friendship created successfully"
+          message: "Friendship request sent"
         });
       }
     } catch (error) {
@@ -44,13 +44,13 @@ const {config} = require('../config/config');
         const rowsAffected = result.rowsAffected[0];
   
         if (rowsAffected === 0) {
-          // No rows affected, friendship with the given friendship ID doesn't exist
+        
           res.status(404).json({
             success: false,
             message: "Friendship not found"
           });
         } else {
-          // Friendship updated successfully
+      
           res.json({
             success: true,
             message: "Friendship updated successfully"
@@ -62,5 +62,40 @@ const {config} = require('../config/config');
       res.status(500).json({ error: "Internal server error" });
     }
   }
+
+
+  async function unfriend (req, res)  {
+    console.log()
+    try {
+      const { friendshipId } = req.body;
+      const pool= req.pool
+      if (pool.connected) {
+        const request = pool.request()
+          .input("friendshipId", friendshipId)
+          .execute("dbo.Unfriend");
   
-  module.exports={createFriendship, updateFriendship}
+        const result = await request;
+        const rowsAffected = result.rowsAffected[0];
+  
+        if (rowsAffected === 0) {
+          // No rows affected, friendship with the given friendship ID doesn't exist
+          res.status(404).json({
+            success: false,
+            message: "Friendship not found"
+          });
+        } else {
+          // Friendship removed successfully
+          res.json({
+            success: true,
+            message: "Friendship removed successfully"
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  }
+  
+  
+  module.exports={createFriendship, updateFriendship,  unfriend }
