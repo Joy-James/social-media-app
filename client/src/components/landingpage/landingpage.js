@@ -1,22 +1,38 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+
+
 import "./landing.css"
 const LandingPage = () => {
+  const navigate = useNavigate();
+  const handleSignInClick = () => {
+    navigate("/register");
+  };
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <>
     <div className="container">
-      <h1>Welcome to the Landing Page</h1>
-      <p>Please select an option:</p>
-      <div>
-        <Link to="/register">Sign Up</Link>
+      <div className="budde-image">
+     
+
       </div>
-      <div>
-        <Link to="/login">Login</Link>
+      
+      <div className="register">
+      <h1>Happening now</h1>
+      <h3>Join <span>BUDDEE</span> today</h3>
+      <p>Please select an option:</p>
+       
+        <button onClick={handleSignInClick}>signup</button>
+        <button onClick={handleLogin}>Login</button>
+      
+      
       </div>
     </div>
 
-    <Outlet/>
+
 
     </>
   );

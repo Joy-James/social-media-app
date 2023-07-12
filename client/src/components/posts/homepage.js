@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Posts() {
+function Homepage() {
   return (
     <div>
       <h2>Welcome to BUDDEE</h2>
@@ -8,4 +8,4 @@ function Posts() {
   )
 }
 
-export default Posts
+export default  Homepage

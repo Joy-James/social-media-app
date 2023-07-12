@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
 import axios from "axios";
 import "./login.css"
 
 
 const Login = () => {
     const navigate = useNavigate();
- 
+    const backHome = () => {
+      navigate("/");
+    };
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleLogin = async (e) => {
-    navigate("/posts")
+    navigate("/homepage")
     e.preventDefault();
 
     try {
@@ -35,7 +38,12 @@ const Login = () => {
   };
 
   return (
+    <>
+    <div className="backhome" onClick={backHome}>
+        <BiArrowBack />
+      </div>
     <div className="login-container">
+       
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <label>
@@ -58,6 +66,7 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
     </div>
+    </>
   );
 };
 
