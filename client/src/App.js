@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css'
 import Login from './components/login/login';
 import Signup from './components/signup/signup';
-import Posts from './components/posts/posts';
+import Homepage from './components/posts/homepage';
 import LandingPage from './components/landingpage/landingpage';
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
     {
     path: '/',
    element:< LandingPage/>, 
-    children: [
+    },
     {
       path: "/login",
       element: <Login />,
@@ -21,10 +21,10 @@ function App() {
       element: <Signup/>,
     },
     {
-      path:"/posts",
-      element:<Posts/>
+      path:"/homepage",
+      element:<Homepage/>
     }
-  ]}])
+  ])
   return (
     <div className="App">
       

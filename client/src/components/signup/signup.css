@@ -1,67 +1,93 @@
-.sign-up-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-  }
-  
-  .sign-up-form h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .input-box {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .sign-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .error-message {
-    color: red;
-    margin-bottom: 10px;
-  }
-  
-  .backhome {
-    font-size: 24px;
-    color: #4caf50;
-    cursor: pointer;
-  }
-  
-  .backhome:hover {
-    color: #45a049;
-  }
-  
-  .backhome .bi-arrow-back {
-    vertical-align: middle;
-  }
-  
-  p {
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  p a {
-    color: #4caf50;
-    text-decoration: none;
-  }
-  
-  p a:hover {
-    text-decoration: underline;
-  }
-  
+
+    .register-user {
+      height: 600px;
+    }
+
+    .sign-up-form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      height: min-content;
+    }
+
+    .sign-up-form h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .input-box {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .sign-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .error-message {
+      color: red;
+      margin-bottom: 10px;
+    }
+
+    .backhome {
+      font-size: 24px;
+      color: #4caf50;
+      cursor: pointer;
+    }
+
+    .backhome:hover {
+      color: #45a049;
+    }
+
+    .backhome .bi-arrow-back {
+      vertical-align: middle;
+    }
+
+    p {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    p a {
+      color: #4caf50;
+      text-decoration: none;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+
+    .sign {
+      padding: 10px;
+      width: max-content;
+      border-radius: 20%;
+    }
+
+    /* Media queries for responsiveness */
+
+    @media (max-width: 768px) {
+      .sign-up-form {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sign-up-form {
+        max-width: 90%;
+      }
+    
+    }

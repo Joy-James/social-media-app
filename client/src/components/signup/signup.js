@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BiArrowBack } from "react-icons/bi";
 import './signup.css'
+
 
 const SignUp = () => {
   const navigate = useNavigate();
   const handleSignInClick = () => {
     navigate("/login");
+  };
+  const handleLogin = () => {
+    navigate("/homepage");
   };
   const backHome = () => {
     navigate("/");
@@ -52,7 +56,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="register-user">
       <div className="backhome" onClick={backHome}>
         <BiArrowBack />
       </div>
@@ -104,10 +108,11 @@ const SignUp = () => {
 
         {error && <p className="error-message">{error}</p>}
 
-        <button className="sign-btn">Sign Up</button>
+        <button className="sign-btn" onClick={handleLogin}>Sign Up</button>
         <p>
           Already have an account?{" "}
-     <button  onClick={handleSignInClick}> Sign In</button>
+     {/* <button  className="sign"  onClick={handleSignInClick}> Sign In</button> */}
+     <Link to={handleSignInClick} >Login</Link>
            
           
         </p>
