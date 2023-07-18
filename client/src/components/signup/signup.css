@@ -29,7 +29,7 @@
     .sign-btn {
       width: 100%;
       padding: 10px;
-      background-color: #4caf50;
+      background-color: #1A8CD8;
       color: #fff;
       font-size: 16px;
       font-weight: bold;
@@ -45,7 +45,7 @@
 
     .backhome {
       font-size: 24px;
-      color: #4caf50;
+      color: #1A8CD8;
       cursor: pointer;
     }
 
@@ -63,13 +63,11 @@
     }
 
     p a {
-      color: #4caf50;
+      color:black;
       text-decoration: none;
     }
 
-    p a:hover {
-      text-decoration: underline;
-    }
+    
 
     .sign {
       padding: 10px;
