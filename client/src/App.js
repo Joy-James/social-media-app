@@ -5,7 +5,7 @@ import Login from './components/login/login';
 import Signup from './components/signup/signup';
 import Panel from './components/posts/panel';
 import LandingPage from './components/landingpage/landingpage';
-import Header from './components/posts/header';
+import Header from './components/posts/pages/Likes$comments/header';
 import CreatePost from './components/posts/pages/uploads/upload';
 import UserProfile from './components/posts/profile/userProfile';
 import Logout from './components/posts/logout';

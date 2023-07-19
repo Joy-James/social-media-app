@@ -164,7 +164,7 @@
     display: flex;
   }
   
-  .icons i {
+  .react-icons {
     font-size: 20px;
     margin-right: 10px;
   }
@@ -194,9 +194,15 @@
 .user-info p {
   margin: 0;
 }
-.icons .liked {
-  color: blue;
+/* Homepage.css
+.react-icons {
+  color: #ccc; 
+  cursor: pointer;
 }
+
+.react-icons.active {
+  color: #ff0000; 
+} */
 
 
 
