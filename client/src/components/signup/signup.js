@@ -2,23 +2,17 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BiArrowBack } from "react-icons/bi";
-import './signup.css'
-
+import "./signup.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const handleSignInClick = () => {
-    navigate("/login");
-  };
-  const handleLogin = () => {
-    navigate("/homepage");
-  };
+ 
+ 
   const backHome = () => {
     navigate("/");
   };
   const [full_name, setfull_name] = useState("");
   const [username, setusername] = useState("");
- 
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   const [password, setPassword] = useState("");
@@ -31,8 +25,12 @@ const SignUp = () => {
       setError("Password and Confirm Password do not match");
       return;
     }
+    if (!full_name || !username || !email || !city || !password || !confirm_password) {
+      setError("Please fill in all the fields");
+      return;
+    }
     try {
-      const response = await axios.post("http://localhost:4040/post/signup", {
+      const response = await axios.post("http://localhost:4040/user/signup", {
         full_name,
         username,
         email,
@@ -42,7 +40,7 @@ const SignUp = () => {
       });
       console.log(response.data);
       // Handle successful signup and navigate to another page
-      navigate("/posts");
+      navigate("/panel/allposts");
     } catch (error) {
       if (error.response) {
         console.error("Server Error:", error.response.data);
@@ -76,7 +74,6 @@ const SignUp = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        
         <input
           type="text"
           placeholder="username"
@@ -84,7 +81,7 @@ const SignUp = () => {
           value={username}
           onChange={(e) => setusername(e.target.value)}
         />
-         <input
+        <input
           type="text"
           placeholder="city"
           className="input-box"
@@ -108,13 +105,12 @@ const SignUp = () => {
 
         {error && <p className="error-message">{error}</p>}
 
-        <button className="sign-btn" onClick={handleLogin}>Sign Up</button>
+        <button className="sign-btn" type="submit" >
+          Sign Up
+        </button>
         <p>
           Already have an account?{" "}
-     {/* <button  className="sign"  onClick={handleSignInClick}> Sign In</button> */}
-     <Link to={handleSignInClick} >Login</Link>
-           
-          
+          <Link to="/login">Login</Link>
         </p>
       </form>
     </div>
