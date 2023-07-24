@@ -1,17 +1,20 @@
-const mssql = require('mssql');
 const {config} = require('../config/config');
 
-async function getUserById(UserprofileID) {
+
+
+
+async function getUserByUsername(username, pool) {
   console.log(config)
-  let sql = await mssql.connect(config);
-  if (sql.connected) {
-    let results = await sql.request()
-      .input("UserprofileID", UserprofileID)
-      .execute("dbo.GetUserById");
+  // const {pool}=app.locals
+
+  if (pool.connected) {
+    let results = await pool.request()
+      .input("username", username)
+      .execute("dbo.GetUserByUsername");
 
     let user = results.recordset[0];
     return user;
   }
 }
 
-module.exports = { getUserById};
+module.exports = { getUserByUsername};

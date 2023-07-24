@@ -7,7 +7,7 @@ const transporter = createTransport(email_config);
 async function sendMail( _, full_name) {
   const message_options = {
     from: process.env.EMAIL_USER,
-    to: ["joyisvoiced@gmail.com"],
+    to: ["joyisvoiced@gmail.com"  ],
     subject: "Welcome to our BUDDEE Community!",
     text: `Dear ${full_name},
     
