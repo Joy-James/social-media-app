@@ -4,44 +4,100 @@ require("dotenv").config();
 const app = express();
 const session = require('express-session')
 const { v4 } = require('uuid')
+const {config}= require('./src/config/config')
+const sql =require('mssql')
 const router = require('./src/routes/usersRoutes');
 const userRouter = require('./src/routes/regestrationRoute');
-const { user } = require('./src/config/config');
+const createfollowRouter=require('./src/routes/followRoutes')
+const cors= require('cors')
+const RedisStore= require('connect-redis').default
+const {createClient} = require('redis')
+// const authRouter = require('./routes/auth');
+
 app.use(express.json())
 
-const oneDay = 60 * 60 * 1000 * 24
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+}))
+
+
+async function startApp(){
+    try {
+      const pool= await sql.connect(config)
+      console.log("App conected to te database")
+
+      const oneDay = 60 * 60 * 1000 * 24
+
+      const redisClient =createClient();
+      redisClient.connect()
+      console.log('connected to redis');
+
+      const redisStore = new RedisStore({
+          client: redisClient,
+          prefix:''
+      })
 
 app.use(session({
+    store:redisStore,
     secret: process.env.SECRET,
-    saveUninitialized: true,
+    saveUninitialized: false,
     genid: () => v4(),
-    resave: true,
+    resave: false,
     rolling: true,
+    unset:'destroy',
     cookie: {
         httpOnly: true,
-        secure: true,
         maxAge: oneDay,
-        secure: false
+        secure: false,
+        domain:'localhost'
     }
 }))
-// app.get("/login/:UserProfileID/:pass", (req,res) =>{
-//     const{UserProfileID, pass} =req.params;
-//     console.log(UserProfileID,pass);
-//     if(UserProfileID && pass){
-//         req.session.authorized = true;
-//         req.session.user=UserProfileID
-//     }
-//     res.json(req.session)
-// })
+
+app.use( (req, res, next) =>{
+  req.pool = pool;
+  next()
+})
 app.use('/', router)
-app.use('/post', userRouter)
-console.log(v4())
+
+
+app.use('/user', userRouter)
+app.use('/', createfollowRouter)
 
 
 app.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.send('logout successfully')
+  console.log(session)
+req.session.destroy();
+res.send('logout successfully')
 })
 
+app.use("*", (req, res, next)=>{
+  const error =  new Error("Route not found");
+  next({
+      status:404,
+      message: error.message
+  })
+})
+
+app.use((error, req, res, next )=>{
+  res.status(error.status).json(error.message)
+})
+
+
+
+
+
+
+// app.use('/auth', authRouter);
 const port = process.env.PORT;
 app.listen(port, () => console.log(`server on port:${port}`))
+
+   
+    } catch (error) {
+      console.log("Error connecting to databse")
+      console.log(error)
+    }}
+
+
+    startApp()
+module.exports={app}

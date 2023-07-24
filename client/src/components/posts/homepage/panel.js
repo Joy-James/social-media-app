@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, {  createContext} from 'react';
 
 import "./homepage.css"
 import { Link, Outlet } from 'react-router-dom';
@@ -8,24 +8,23 @@ import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 import * as BiIcons from 'react-icons/bi';
 import * as MdIcons from 'react-icons/md';
-import profile from "../resources/profile.png";
+import profile from "../../resources/profile.png";
+import twitter from "../../resources/Twitter_bird_logo_classic_round_sticker___Zazzle-removebg-preview.png"
 
-
-const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
 const Panel = () => {
-    const [theme, setTheme] = useState('dark');
-    const toggleTheme = () => {
-      setTheme(theme === 'dark' ? 'light' : 'dark');
-    };
+   
+  
     return (
       <>
+     
         <IconContext.Provider value={{ color: "black" }}>
-        <ThemeContext.Provider value={theme}>
-            <div className={`user-page ${theme}`}>
+       
+            <div className={`user-page `}>
                 <div className='side-panel'>
                     <div className='side-panel_header'>
-                        <h2>BUDDEE</h2>
+                        <h2><img src={twitter} alt='bird' className='twitter'/>BUDDEE</h2>
                     </div>
                     
                     <div className='side-panel_items'>
@@ -39,14 +38,15 @@ const Panel = () => {
                          
 
                         </ul>
-                        <button className="btn-e"onClick={toggleTheme}>Toggle Theme</button>
+                    
                     </div>
                 </div>
                 <Outlet />
                
             </div>
-            </ThemeContext.Provider>
             </IconContext.Provider>
+            
+           
             </>
     )
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate  } from "react-router-dom";
-import twitter from "../resources/Twitter bird logo classic round sticker _ Zazzle.jpg"
-import Donut from "../resources/donutbuddies.jpg"
+import twitter from "../resources/Twitter_bird_logo_classic_round_sticker___Zazzle-removebg-preview.png"
+import Donut from "../resources/Printable_Donut_Buddies-removebg-preview.png"
 import "./landing.css"
 const LandingPage = () => {
   const navigate = useNavigate();

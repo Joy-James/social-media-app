@@ -16,14 +16,28 @@
     .login-container form {
       display: flex;
       flex-direction: column;
+      width: 100%;
+      height: max-content;
+
     }
 
-    .login-container label {
-      margin-bottom: 10px;
+    .loggingin label {
+      /* margin-bottom: 10px; */
       font-weight: bold;
+      margin-left: 0%;
+      align-items: flex-start;
+    justify-content: flex-start;
     }
+    
 
     .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+     .loggingin .user-user {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;

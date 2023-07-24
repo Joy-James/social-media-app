@@ -1,13 +1,11 @@
-const  joi =require('joi')
+const joi = require('joi')
 
-const new_Post_Schema=joi.object({
-    
-    UserprofileID:joi.number() .required(),
-       imageUrl:joi.string()
-                 .required(),
-          content:joi.string()
-                    .required(),
-          
-}) 
+const new_Post_Schema = joi.object({
 
-    module.exports={new_Post_Schema};
+     
+    imageUrl: joi.string(),
+    content: joi.string(),
+
+})
+
+module.exports = { new_Post_Schema };
