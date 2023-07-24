@@ -30,7 +30,7 @@ const SignUp = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:4040/user/signup", {
+      const response = await axios.post("http://localhost:4040/usercd /signup", {
         full_name,
         username,
         email,
@@ -54,8 +54,10 @@ const SignUp = () => {
   };
 
   return (
+    <>
+   
     <div className="register-user">
-      <div className="backhome" onClick={backHome}>
+    <div className="backhome" onClick={backHome}>
         <BiArrowBack />
       </div>
       <form className="sign-up-form" onSubmit={handleSubmit}>
@@ -63,7 +65,7 @@ const SignUp = () => {
         <input
           type="text"
           placeholder="Full name"
-          className="input-box"
+          className="full-name"
           value={full_name}
           onChange={(e) => setfull_name(e.target.value)}
         />
@@ -114,6 +116,7 @@ const SignUp = () => {
         </p>
       </form>
     </div>
+    </>
   );
 };
 

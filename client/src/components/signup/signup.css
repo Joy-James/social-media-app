@@ -1,91 +1,76 @@
+.register-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+ 
+}
 
-    .register-user {
-      height: 600px;
-    }
+.backhome {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  cursor: pointer;
+  font-size: 24px;
+  margin-bottom: 10px;
+ 
+  margin-left: 0px;
+}
 
-    .sign-up-form {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #f2f2f2;
-      border-radius: 5px;
-      height: min-content;
-    }
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: fit-content;
+}
 
-    .sign-up-form h1 {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
+.sign-up-form h1 {
+  font-size: 24px;
+  /* margin-bottom: 20px; */
+}
 
-    .input-box {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+.sign-up-form .input-box {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.sign-up-form .full-name {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
-    .sign-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1A8CD8;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
 
-    .error-message {
-      color: red;
-      margin-bottom: 10px;
-    }
+.sign-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #1A8CD8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    .backhome {
-      font-size: 24px;
-      color: #1A8CD8;
-      cursor: pointer;
-    }
+.sign-btn:hover {
+  background-color: #0f6ca0;
+}
 
-    .backhome:hover {
-      color: #45a049;
-    }
+p {
+  margin-top: 10px;
+}
 
-    .backhome .bi-arrow-back {
-      vertical-align: middle;
-    }
-
-    p {
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    p a {
-      color:black;
-      text-decoration: none;
-    }
-
-    
-
-    .sign {
-      padding: 10px;
-      width: max-content;
-      border-radius: 20%;
-    }
-
-    /* Media queries for responsiveness */
-
-    @media (max-width: 768px) {
-      .sign-up-form {
-        padding: 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .sign-up-form {
-        max-width: 90%;
-      }
-    
-    }
+p a {
+  color: #1A8CD8;
+  text-decoration: none;
+}

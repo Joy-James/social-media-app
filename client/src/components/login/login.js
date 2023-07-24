@@ -47,12 +47,13 @@ const Login = () => {
       <div className="backhome" onClick={backHome}>
         <BiArrowBack />
       </div>
-      <div className="login-container">
+      <div className="login-container ">
         <h1>Login</h1>
-        <form>
+        <form className="loggingin">
           <label>
             Username:
             <input
+            className="user-user"
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -61,6 +62,7 @@ const Login = () => {
           <label>
             Password:
             <input
+               className="user-user"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

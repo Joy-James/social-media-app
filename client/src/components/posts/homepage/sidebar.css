@@ -1,0 +1,66 @@
+/* suggestFollow.css */
+
+.suggested-follow-container {
+    margin-right: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .suggest-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .parent {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .suggested-user-profilepic {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+   
+  }
+  .suggested-users {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .suggesred-name{
+    color:#939393;
+  }
+  
+  .suggested-user {
+   
+    width: max-content;
+    padding: 8px 16px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .follow-button-container {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+  
+  .follow-button {
+    align-items: flex-end;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  /* Add additional styling as needed */
+  

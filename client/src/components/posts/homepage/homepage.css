@@ -1,16 +1,22 @@
 
-.side-panel{
-    position: fixed;
-    width: 25%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* gap: 40px; */
-    border-right: 1px solid #979191;
-    align-items: center;
-    padding-top: 20px;
-   
-   
+.side-panel {
+  position: fixed;
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #979191;
+  align-items: center;
+  padding-top: 20px;
+}
+.side-panel_items {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  .content{
+    color: black;
   }
   h2{
      /* font-family: 'Ysabeau Infant', sans-serif; */
@@ -76,7 +82,15 @@
     border: 1px solid gold;
   }
   .all-posts{
-    margin-left: 30%;
+    margin-top:10px ;
+    margin-left: 25%;
+    width: 60%;
+   
+  }
+  .parent-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
   }
 
   .upload{
@@ -90,8 +104,10 @@
   .profile {
     border: 1px solid #ccc;
     padding: 20px;
-    margin-bottom: 20px;
-  }
+    margin-bottom: 20px;}
+   
+    
+
   
   h2 {
     font-size: 24px;
@@ -127,28 +143,39 @@
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    width: 80%;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
   }
   
   .post-header {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    height: fit-content;
   }
   
-  .profile-circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #aaa;
+  .profile-details {
+   
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    gap: 10px;
+    
   }
+   .profile-details  img{
+
+   height: 70px !important;
+  width: 70px;
+  border-radius: 50%;
+   }
   .post img{
-    height: 250px;
-    width: 300px;
+   
+  
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
   }
   
   .post p {
@@ -160,11 +187,14 @@
     align-items: center;
   }
   
-  .icons {
+  .action-buttons {
     display: flex;
+    
+
   }
   
-  .react-icons {
+  .action-buttons {
+   gap: 7px;
     font-size: 20px;
     margin-right: 10px;
   }
@@ -176,20 +206,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  margin-right: 20px;
 }
 
-.profile-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #aaa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 20px;
-  margin-right: 10px;
-}
+
 
 .user-info p {
   margin: 0;
@@ -252,8 +272,13 @@
 
 .post-image {
   width: 100%;
-  height: auto;
+  height: 200px;
   border-radius: 5px;
+}
+.twitter{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
 }
 
 .post-content {
@@ -262,4 +287,56 @@
 
 .no-posts {
   color: #888;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .all-posts {
+    margin-left: 10%;
+    width: 80%;
+  }
+
+  .side-panel {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+   .side-panel_items {
+    width: 100%;
+  }
+  .parent-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .upload,
+  .profile {
+    margin-left: 10%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .side-panel {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .nav-text {
+    justify-content: center;
+  }
+
+  .all-posts {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .parent-container {
+    gap: 10px;
+  }
+
+  .upload,
+  .profile {
+    margin-left: 5%;
+  }
 }

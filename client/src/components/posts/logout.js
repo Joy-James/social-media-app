@@ -1,25 +1,31 @@
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const Logout = () => {
+  const navigate = useNavigate();
+
   const handleLogout = async () => {
     try {
-      await axios.get('http://localhost:4040/logout', { withCredentials: true });
-      // Redirect the user to the login page or any other desired page
-      window.location.href = '/login'; // Replace with your desired redirect URL
+     
+      await axios.get('http://localhost:4040/logout', {
+       
+      },{withCredentials:true});
+
+
+      navigate('/'); 
     } catch (error) {
-      console.error('Error logging out:', error);
-      // Handle the error or show an error message to the user
+      console.log('Error logging out:', error);
     }
   };
 
   return (
-    <>
-      
+    <div>
+      <h2>Logout</h2>
+      <p>Are you sure you want to logout?</p>
       <button onClick={handleLogout}>Logout</button>
-    
-    </>
+    </div>
   );
 };
 
-export default Header;
+export default Logout;

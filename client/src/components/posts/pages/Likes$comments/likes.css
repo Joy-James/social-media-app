@@ -1,0 +1,19 @@
+/* CSS for the comment section */
+.comment-section {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* CSS for the comment text */
+.comment-section p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* CSS for the "No comments yet." message */
+.comment-section.no-comments {
+  font-style: italic;
+  color: #999;
+}
